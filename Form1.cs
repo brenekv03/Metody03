@@ -32,6 +32,8 @@ namespace Metody03
             double[] pole = new double[pocetPrvku];
             GenerovatCislaDoPole(pole, a, b, pocetPrvku);
             ZobrazitDoListbox(pole,listBox1);
+            ProhoditMax(pole);
+            ZobrazitDoListbox(pole, listBox2);
         }
         static private void  GenerovatCislaDoPole(double[] pole, double a, double b, int pocetPrvku)
         {
@@ -48,6 +50,21 @@ namespace Metody03
             {
                 listBox.Items.Add(x);
             }
+        }
+        static private void ProhoditMax(double[] pole)
+        {
+            double max = pole[0];
+            int maxPoradi = 0;
+            for(int i =0;i< pole.Length;i++)
+            {
+                if(pole[i] > max)
+                {
+                    max = pole[i];
+                    maxPoradi = i;
+                }
+            }
+            pole[maxPoradi] = pole[pole.Length-1];
+            pole[pole.Length-1] = max;
         }
     }
 }
